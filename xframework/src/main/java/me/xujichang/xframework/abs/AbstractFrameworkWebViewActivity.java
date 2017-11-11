@@ -1,4 +1,4 @@
-package me.xujichang.xframework.base;
+package me.xujichang.xframework.abs;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -20,11 +20,16 @@ import android.webkit.WebView;
 import android.widget.ProgressBar;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.github.lzyzsd.jsbridge.BridgeHandler;
 import com.github.lzyzsd.jsbridge.BridgeWebView;
+import com.github.lzyzsd.jsbridge.BridgeWebViewClient;
+import com.github.lzyzsd.jsbridge.CallBackFunction;
 
+import me.xujichang.util.activity.SuperActivity;
+import me.xujichang.util.tool.LogTool;
 import me.xujichang.xframework.R;
-import me.xujichang.xframework.interfaces.JSBridgeBaseListener;
-import me.xujichang.xframework.utils.JSBridgeManager;
+import me.xujichang.xframework.interfaces.JsBridgeBaseListener;
+import me.xujichang.xframework.utils.JsBridgeManager;
 
 
 /**
@@ -33,7 +38,7 @@ import me.xujichang.xframework.utils.JSBridgeManager;
  * Created by xjc on 2017/6/1.
  */
 
-public abstract class HybirdBaseWebViewActivity extends SuperActivity implements JSBridgeBaseListener {
+public abstract class AbstractFrameworkWebViewActivity extends SuperActivity implements JsBridgeBaseListener {
     private BridgeWebView webView;
     private String url;
     private MaterialDialog progressDialog;
@@ -46,7 +51,7 @@ public abstract class HybirdBaseWebViewActivity extends SuperActivity implements
         webView = (BridgeWebView) findViewById(R.id.base_web_view);
         progressBar = (ProgressBar) findViewById(R.id.pb_loading_status);
         //加载默认方法
-        JSBridgeManager.getInstance().addDefaultHandler(webView, this);
+        JsBridgeManager.getInstance().addDefaultHandler(webView, this);
         //加载Client
         webView.setWebChromeClient(new SelfWebViewChromeClient());
         webView.setWebViewClient(new SelfWebViewClient(webView));

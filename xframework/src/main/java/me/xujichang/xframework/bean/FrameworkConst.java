@@ -1,10 +1,13 @@
-package me.xujichang.xframework.base;
+package me.xujichang.xframework.bean;
 
 /**
- * Created by xjc on 2017/6/7.
+ * @author xjc
+ *         Created by xjc on 2017/6/7.
  */
 
-public class HybirdConst {
+public class FrameworkConst {
+    public static final String LAUNCH_ACTIVITY_NAME = "MainActivity";
+    public static final long EXIT_DURATION = 1000L;
     public static String BASE_PACKAGE_NAME;
     public static boolean USE_MAP = false;
     public static boolean USE_OFFLINE_MAP = false;

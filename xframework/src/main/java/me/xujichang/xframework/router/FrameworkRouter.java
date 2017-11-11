@@ -16,34 +16,36 @@ import java.util.List;
 import java.util.Map;
 
 import me.xujichang.hybirdbase.base.HybirdConst;
-import me.xujichang.hybirdbase.interfaces.JSBridgeBaseListener;
+import me.xujichang.xframework.interfaces.JsBridgeBaseListener;
 
 /**
  * Activity 跳转路由
- * Created by xjc on 2017/5/23.
+ *
+ * @author xjc
+ *         Created by xjc on 2017/5/23.
  */
 
-public class XRouter {
-    private static XRouter ourInstance = null;
+public class FrameworkRouter {
+    private static FrameworkRouter ourInstance = null;
     private WeakReference<Context> context;
     private ArrayList<Activity> activities;
     private String basePackageName;
     private String htmlDir;
 
-    private XRouter() {
+    private FrameworkRouter() {
         activities = new ArrayList<>();
     }
 
-    private XRouter(Builder builder) {
+    private FrameworkRouter(Builder builder) {
         if (ourInstance == null) {
-            ourInstance = new XRouter();
+            ourInstance = new FrameworkRouter();
         }
         init(builder.context);
         ourInstance.setBasePackageName(builder.packageName);
         ourInstance.setHtmlDir(builder.htmlDir);
     }
 
-    protected XRouter(String args) {
+    protected FrameworkRouter(String args) {
 
     }
 
@@ -67,9 +69,9 @@ public class XRouter {
         activities.remove(activity);
     }
 
-    public static XRouter getInstance() {
+    public static FrameworkRouter getInstance() {
         if (null == ourInstance) {
-            ourInstance = new XRouter();
+            ourInstance = new FrameworkRouter();
         }
         return ourInstance;
     }
@@ -160,7 +162,7 @@ public class XRouter {
      * @param baseListener     Native的事件
      * @param callBackFunction Native回复请求
      */
-    public void parseURL(String url, JSBridgeBaseListener baseListener, CallBackFunction callBackFunction) {
+    public void parseURL(String url, JsBridgeBaseListener baseListener, CallBackFunction callBackFunction) {
         checkProtocol(url);
         Uri uri = Uri.parse(url);
         String scheme = uri.getScheme();
@@ -182,7 +184,7 @@ public class XRouter {
      * @param baseListener
      * @param callBackFunction
      */
-    private void parseFragment(String fragment, Uri uri, JSBridgeBaseListener baseListener, CallBackFunction callBackFunction) {
+    private void parseFragment(String fragment, Uri uri, JsBridgeBaseListener baseListener, CallBackFunction callBackFunction) {
         if (TextUtils.isEmpty(fragment)) {
             return;
         }
@@ -206,7 +208,7 @@ public class XRouter {
      * @param fragment
      * @param uri
      */
-    private void parseFragment(String fragment, Uri uri, JSBridgeBaseListener listener) {
+    private void parseFragment(String fragment, Uri uri, JsBridgeBaseListener listener) {
         if (TextUtils.isEmpty(fragment)) {
             return;
         }
@@ -256,7 +258,7 @@ public class XRouter {
         }
 
         public void build() {
-            new XRouter(this);
+            new FrameworkRouter(this);
         }
     }
 }

@@ -11,7 +11,8 @@ import me.xujichang.util.tool.DisplayTool;
 import me.xujichang.xframework.R;
 
 /**
- * Created by xjc on 2017/6/1.
+ * @author xjc
+ *         Created by xjc on 2017/6/1.
  */
 
 public class SelfBottomSheetDialog extends BottomSheetDialog {

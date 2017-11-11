@@ -1,5 +1,7 @@
 package me.xujichang.hybirdbase.router;
 
+import me.xujichang.xframework.router.FrameworkRouter;
+
 /**
  * Activity 跳转路由
  *
@@ -7,7 +9,7 @@ package me.xujichang.hybirdbase.router;
  *         Created by xjc on 2017/5/23.
  */
 @Deprecated
-public class XRouter extends me.xujichang.xframework.router.XRouter {
+public class XRouter extends FrameworkRouter {
 
     private XRouter() {
         super("");

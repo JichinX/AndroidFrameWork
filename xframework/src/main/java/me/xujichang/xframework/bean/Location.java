@@ -8,7 +8,8 @@ import android.text.TextUtils;
 import com.baidu.mapapi.model.LatLng;
 
 /**
- * Created by xjc on 2017/6/9.
+ * @author xjc
+ *         Created by xjc on 2017/6/9.
  */
 
 public class Location implements Parcelable {

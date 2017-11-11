@@ -3,10 +3,11 @@ package me.xujichang.xframework.interfaces;
 import com.xujichang.utils.base.ViewBaseListener;
 
 /**
- * Created by xjc on 2017/5/31.
+ * @author xjc
+ *         Created by xjc on 2017/5/31.
  */
 
-public interface HybirdViewBaseListener extends ViewBaseListener {
+public interface FrameworkViewBaseListener extends ViewBaseListener {
 
     void showDialog(String msg);
 }

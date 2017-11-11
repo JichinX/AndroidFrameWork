@@ -1,10 +1,11 @@
 package me.xujichang.xframework.interfaces;
 
 /**
- * Created by xjc on 2017/5/23.
+ * @author xjc
+ *         Created by xjc on 2017/5/23.
  */
 
-public interface JSBridgeBaseListener {
+public interface JsBridgeBaseListener {
 
     String getLocation();
 

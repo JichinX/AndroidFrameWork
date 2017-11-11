@@ -17,21 +17,22 @@ import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.utils.CoordinateConverter;
 import com.xujichang.utils.tool.LocationTool;
 import com.xujichang.utils.tool.LogTool;
 
-import me.xujichang.hybirdbase.R;
-import me.xujichang.hybirdbase.base.HybirdBaseActivity;
 import me.xujichang.hybirdbase.base.HybirdConst;
 import me.xujichang.hybirdbase.bean.Location;
+import me.xujichang.xframework.R;
+import me.xujichang.xframework.abs.AbstractFrameworkActivity;
 
 /**
  * 选取位置
- * Created by xjc on 2017/6/9.
+ *
+ * @author xjc
+ *         Created by xjc on 2017/6/9.
  */
 
-public abstract class HybirdBaseLocalizationActivity extends HybirdBaseActivity {
+public abstract class AbstractFrameworkBaseLocalizationActivity extends AbstractFrameworkActivity {
     /**
      * 经纬度提示
      */

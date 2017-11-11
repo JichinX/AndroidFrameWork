@@ -13,7 +13,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
- * Created by xjc on 2017/5/31.
+ * @author xjc
+ *         Created by xjc on 2017/5/31.
  */
 
 public class RecyclerViewItemDecoration extends RecyclerView.ItemDecoration {
@@ -82,7 +83,9 @@ public class RecyclerViewItemDecoration extends RecyclerView.ItemDecoration {
         }
     }
 
-    //画竖线
+    /**
+     * 画竖线
+     */
     public void drawVerticalLine(Canvas c, RecyclerView parent, RecyclerView.State state) {
         int top = parent.getPaddingTop();
         int bottom = parent.getHeight() - parent.getPaddingBottom();

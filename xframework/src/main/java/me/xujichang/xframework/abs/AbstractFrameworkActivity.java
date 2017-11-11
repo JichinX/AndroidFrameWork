@@ -1,4 +1,4 @@
-package me.xujichang.xframework.base;
+package me.xujichang.xframework.abs;
 
 import android.os.Build;
 import android.os.Environment;
@@ -7,10 +7,6 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.xujichang.utils.activity.SuperActivity;
-import com.xujichang.utils.bean.AppInfo;
-import com.xujichang.utils.download.DownLoadTool;
-import com.xujichang.utils.tool.LogTool;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,17 +15,28 @@ import java.io.InputStream;
 
 import io.reactivex.Observable;
 import me.xujichang.hybirdbase.api.DownLoadApi;
+import me.xujichang.util.activity.SuperActivity;
+import me.xujichang.util.bean.AppInfo;
+import me.xujichang.util.download.DownLoadTool;
+import me.xujichang.util.tool.LogTool;
+import me.xujichang.xframework.bean.FrameworkConst;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 /**
- * Created by xjc on 2017/6/23.
+ * @author xjc
+ *         Created by xjc on 2017/6/23.
  */
 
-public abstract class HybirdBaseActivity extends SuperActivity {
-
+public abstract class AbstractFrameworkActivity extends SuperActivity {
+    /**
+     * 显示提示框
+     *
+     * @param msg      提示信息
+     * @param callback 点击事件的反馈
+     */
     protected void showAlertDialog(@NonNull String msg, MaterialDialog.SingleButtonCallback callback) {
         new MaterialDialog.Builder(this)
                 .title("提示")
@@ -56,7 +63,7 @@ public abstract class HybirdBaseActivity extends SuperActivity {
     /**
      * 检查备份文件
      *
-     * @param fileName
+     * @param fileName 文件名
      * @return
      */
     protected boolean checkCacheMapFile(String fileName) {
@@ -69,14 +76,31 @@ public abstract class HybirdBaseActivity extends SuperActivity {
         return file.exists();
     }
 
+    /**
+     * 判断缓存文件是否存在
+     *
+     * @param fileName 文件名
+     * @return
+     */
     private boolean isCacheFileExits(String fileName) {
         return false;
     }
 
+    /**
+     * 存储离线地图文件夹
+     *
+     * @return
+     */
     private boolean isMapCacheDirExits() {
         return false;
     }
 
+    /**
+     * 获得地图文件
+     *
+     * @param fileName
+     * @return
+     */
     private File getMapFile(String fileName) {
         File mapDir = getMapDir();
         if (!mapDir.exists()) {
@@ -87,9 +111,14 @@ public abstract class HybirdBaseActivity extends SuperActivity {
         return file;
     }
 
+    /**
+     * 获得地图文件夹
+     *
+     * @return
+     */
     private File getMapDir() {
         File appExternalDir = null;
-        if (Build.VERSION.SDK_INT > 20) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT_WATCH) {
             appExternalDir = getExternalFilesDir(null);
         } else {
             appExternalDir = Environment.getExternalStorageDirectory();
@@ -97,7 +126,7 @@ public abstract class HybirdBaseActivity extends SuperActivity {
         if (appExternalDir == null) {
             return null;
         }
-        return new File(appExternalDir, HybirdConst.PATH.mapPath);
+        return new File(appExternalDir, FrameworkConst.PATH.mapPath);
     }
 
     private File getCacheMapDir() {
@@ -106,7 +135,7 @@ public abstract class HybirdBaseActivity extends SuperActivity {
         if (cacheMapDir == null) {
             return null;
         }
-        return new File(cacheMapDir, HybirdConst.PATH.cmapCachePath);
+        return new File(cacheMapDir, FrameworkConst.PATH.cmapCachePath);
     }
 
     public boolean isMapOfflineDirExits() {
@@ -276,13 +305,16 @@ public abstract class HybirdBaseActivity extends SuperActivity {
         try {
             int bytesum = 0;
             int byteread = 0;
-            if (oldFile.exists()) { //文件存在时
-                InputStream inStream = new FileInputStream(oldFile); //读入原文件
+            //文件存在时
+            if (oldFile.exists()) {
+                //读入原文件
+                InputStream inStream = new FileInputStream(oldFile);
                 FileOutputStream fs = new FileOutputStream(newFile);
                 byte[] buffer = new byte[1444];
                 int length;
                 while ((byteread = inStream.read(buffer)) != -1) {
-                    bytesum += byteread; //字节数 文件大小
+                    //字节数 文件大小
+                    bytesum += byteread;
                     fs.write(buffer, 0, byteread);
                 }
                 inStream.close();
@@ -302,6 +334,9 @@ public abstract class HybirdBaseActivity extends SuperActivity {
         }
     }
 
+    /**
+     * 复制文件的线程
+     */
     private class CopyFileThread extends Thread {
         private File oldFile;
         private File newFile;

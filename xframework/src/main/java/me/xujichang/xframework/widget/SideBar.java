@@ -17,7 +17,7 @@ import me.xujichang.xframework.R;
 import static android.view.MotionEvent.ACTION_UP;
 
 /**
- *
+ * @author xjc
  */
 public class SideBar extends View {
     private int singleHeight;

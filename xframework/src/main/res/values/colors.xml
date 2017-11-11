@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="bg_gray">#FFAAAAAA</color>
+    <color name="bg_gray">#EEEEEE</color>
     <color name="white">#FFFFFF</color>
     <color name="dark_gray">#FFAAAAAA</color>
-
+    <color name="dark">#FF000000</color>
 </resources>

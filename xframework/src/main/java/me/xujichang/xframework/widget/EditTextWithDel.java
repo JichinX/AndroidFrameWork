@@ -11,7 +11,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 
 /**
- * Created by xjc on 2017/6/9.
+ * @author xjc
+ *         Created by xjc on 2017/6/9.
  */
 
 public class EditTextWithDel extends AppCompatEditText {
@@ -39,8 +40,6 @@ public class EditTextWithDel extends AppCompatEditText {
     }
 
     private void init() {
-//        imgInable = mContext.getResources().getDrawable(R.drawable.delete_gray);
-//        imgAble = mContext.getResources().getDrawable(R.drawable.delete);
         addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -58,15 +57,20 @@ public class EditTextWithDel extends AppCompatEditText {
         setDrawable();
     }
 
-    //设置删除图片
+    /**
+     * 设置删除图片
+     */
     private void setDrawable() {
-        if (length() < 1)
+        if (length() < 1) {
             setCompoundDrawablesWithIntrinsicBounds(null, null, imgInable, null);
-        else
+        } else {
             setCompoundDrawablesWithIntrinsicBounds(null, null, imgAble, null);
+        }
     }
 
-    // 处理删除事件
+    /**
+     * 处理删除事件
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (imgAble != null && event.getAction() == MotionEvent.ACTION_UP) {

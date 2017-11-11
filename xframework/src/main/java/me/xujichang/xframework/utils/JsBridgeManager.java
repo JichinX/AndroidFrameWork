@@ -5,8 +5,8 @@ import com.github.lzyzsd.jsbridge.BridgeWebView;
 import com.github.lzyzsd.jsbridge.CallBackFunction;
 import com.xujichang.utils.tool.LogTool;
 
-import me.xujichang.hybirdbase.interfaces.JSBridgeBaseListener;
 import me.xujichang.hybirdbase.router.XRouter;
+import me.xujichang.xframework.interfaces.JsBridgeBaseListener;
 
 /**
  * 管理基本的方法
@@ -17,29 +17,31 @@ import me.xujichang.hybirdbase.router.XRouter;
  * selfInfo
  * location
  * <p>
- * Created by xjc on 2017/5/23.
+ *
+ * @author xjc
+ *         Created by xjc on 2017/5/23.
  */
 
-public class JSBridgeManager {
-    private static JSBridgeManager manager = null;
+public class JsBridgeManager {
+    private static JsBridgeManager manager = null;
 
-    private JSBridgeManager() {
-
-    }
-
-    protected JSBridgeManager(String args) {
+    private JsBridgeManager() {
 
     }
 
-    public static JSBridgeManager getInstance() {
+    protected JsBridgeManager(String args) {
+
+    }
+
+    public static JsBridgeManager getInstance() {
         if (null == manager) {
-            manager = new JSBridgeManager();
+            manager = new JsBridgeManager();
         }
         return manager;
     }
 
 
-    public void addDefaultHandler(BridgeWebView webView, final JSBridgeBaseListener baseListener) {
+    public void addDefaultHandler(BridgeWebView webView, final JsBridgeBaseListener baseListener) {
         webView.setDefaultHandler(new BridgeHandler() {
             @Override
             public void handler(String s, CallBackFunction callBackFunction) {

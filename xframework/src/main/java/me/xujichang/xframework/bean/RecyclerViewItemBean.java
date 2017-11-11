@@ -1,7 +1,8 @@
 package me.xujichang.xframework.bean;
 
 /**
- * Created by xjc on 2017/6/10.
+ * @author xjc
+ *         Created by xjc on 2017/6/10.
  */
 
 public class RecyclerViewItemBean {

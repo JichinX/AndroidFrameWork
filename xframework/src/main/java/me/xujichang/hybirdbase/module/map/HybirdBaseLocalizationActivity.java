@@ -1,5 +1,7 @@
 package me.xujichang.hybirdbase.module.map;
 
+import me.xujichang.xframework.module.map.AbstractFrameworkBaseLocalizationActivity;
+
 /**
  * 选取位置
  *
@@ -7,5 +9,5 @@ package me.xujichang.hybirdbase.module.map;
  *         Created by xjc on 2017/6/9.
  */
 @Deprecated
-public abstract class HybirdBaseLocalizationActivity extends me.xujichang.xframework.module.map.HybirdBaseLocalizationActivity {
+public abstract class HybirdBaseLocalizationActivity extends AbstractFrameworkBaseLocalizationActivity {
 }

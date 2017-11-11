@@ -10,7 +10,11 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 /**
- * Created by xjc on 2017/6/9.
+ * des:
+ * 可对内部的Drawable点击的EditText控件，
+ *
+ * @author xjc
+ *         Created by xjc on 2017/6/9.
  */
 
 public class ClickedEditText extends AppCompatEditText {

@@ -1,5 +1,7 @@
 package me.xujichang.hybirdbase.utils;
 
+import me.xujichang.xframework.utils.JsBridgeManager;
+
 /**
  * 管理基本的方法
  * toast
@@ -14,7 +16,7 @@ package me.xujichang.hybirdbase.utils;
  *         Created by xjc on 2017/5/23.
  */
 @Deprecated
-public class JSBridgeManager extends me.xujichang.xframework.utils.JSBridgeManager {
+public class JSBridgeManager extends JsBridgeManager {
 
     private JSBridgeManager() {
         super("");

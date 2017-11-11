@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_4dp">
+            <!--GPS编码类型-->
+            <TextView
+                android:id="@+id/tv_type_code"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                tool:text="百度编码" />
+            <!--经纬度-->
+            <TextView
+                android:id="@+id/tv_latlng_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_4dp"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                tool:text="E:120.132133213131332131，N:32.2321331233123123132132132321312" />
+
+        </LinearLayout>
+        <!--经纬度对应地址解析-->
+        <TextView
+            android:id="@+id/tv_loc_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_8dp"
+            android:textStyle="bold"
+            tool:text="余杭区公安分局" />
+    </LinearLayout>
+    <!--地图-->
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/mv_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

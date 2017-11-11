@@ -17,7 +17,8 @@ import me.xujichang.hybirdbase.module.gesturelock.util.VibratorUtil;
 import static android.view.View.MeasureSpec.AT_MOST;
 
 /**
- * Created by xjc on 2017/6/27.
+ * @author xjc
+ *         Created by xjc on 2017/6/27.
  */
 
 public class GestureLock extends View {

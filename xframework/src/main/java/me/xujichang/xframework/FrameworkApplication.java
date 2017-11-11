@@ -11,7 +11,7 @@ import me.xujichang.hybirdbase.router.XRouter;
  *         Created by xjc on 2017/6/29.
  */
 
-public abstract class XFrameworkApplication extends Application {
+public abstract class FrameworkApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
