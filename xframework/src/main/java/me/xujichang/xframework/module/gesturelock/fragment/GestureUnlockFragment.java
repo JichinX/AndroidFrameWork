@@ -10,10 +10,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import me.xujichang.hybirdbase.R;
-import me.xujichang.hybirdbase.module.gesturelock.GestureLockActivity;
-import me.xujichang.hybirdbase.module.gesturelock.util.GestureLockUtil;
 import me.xujichang.hybirdbase.widget.GestureLock;
+import me.xujichang.xframework.R;
+import me.xujichang.xframework.module.gesturelock.GestureLockActivity;
+import me.xujichang.xframework.module.gesturelock.util.GestureLockUtil;
 
 /**
  * Created by xjc on 2017/6/28.
@@ -57,7 +57,7 @@ public class GestureUnlockFragment extends Fragment {
         glLock.setNumber(lockNum);
         glLock.setLockListener(new GestureLock.GestureLockListener() {
             @Override
-            public void onResult(GestureLock lock, ArrayList<Integer> results) {
+            public void onResult(me.xujichang.xframework.widget.GestureLock lock, ArrayList<Integer> results) {
                 if (null == unLockListener) {
                     return;
                 }

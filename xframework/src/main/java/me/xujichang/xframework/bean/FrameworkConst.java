@@ -12,6 +12,11 @@ public class FrameworkConst {
     public static boolean USE_MAP = false;
     public static boolean USE_OFFLINE_MAP = false;
 
+    public static class Intent {
+
+        public static final String LOCATION_MODE = "location_mode";
+    }
+
     public static class FLAG {
         public static final String WEB_URL = "web_url";
         public static final String LOCATION = "location";

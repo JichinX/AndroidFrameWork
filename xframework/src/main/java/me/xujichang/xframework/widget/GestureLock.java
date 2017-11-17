@@ -12,7 +12,8 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-import me.xujichang.hybirdbase.module.gesturelock.util.VibratorUtil;
+
+import me.xujichang.xframework.module.gesturelock.util.VibratorUtil;
 
 import static android.view.View.MeasureSpec.AT_MOST;
 

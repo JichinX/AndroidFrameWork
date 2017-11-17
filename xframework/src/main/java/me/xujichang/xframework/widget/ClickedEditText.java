@@ -64,10 +64,11 @@ public class ClickedEditText extends AppCompatEditText {
     }
 
     private void setDrawable() {
-        if (length() < 1)
+        if (length() < 1) {
             setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], null, drawables[3]);
-        else
+        } else {
             setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], deleteDrawable, drawables[3]);
+        }
     }
 
     @Override
@@ -121,6 +122,7 @@ public class ClickedEditText extends AppCompatEditText {
                     clicked = true;
                 }
                 break;
+            default:
         }
         return clicked;
     }

@@ -1,8 +1,13 @@
 package me.xujichang.xframework.module.map;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.a;
 import com.baidu.mapapi.map.MapView;
 
+import me.xujichang.util.tool.LogTool;
 import me.xujichang.util.tool.ViewTool;
+import me.xujichang.xframework.interfaces.BaiduMapBase;
+import me.xujichang.xframework.module.location.LocationControl;
 
 /**
  * des:
@@ -11,12 +16,22 @@ import me.xujichang.util.tool.ViewTool;
  */
 
 public class MapLocationObserver extends ViewTool.XLifeCycleObserver {
-    private FrameworkMapLocationActivity mActivity;
+    private BaiduMapBase mBase;
     private MapView mMapView;
+    private a mA;
+    private boolean locationOnceOnly = false;
 
-    public MapLocationObserver(FrameworkMapLocationActivity activity, MapView mapView) {
-        mActivity = activity;
+    public MapLocationObserver(final BaiduMapBase base, MapView mapView) {
+        this.mBase = base;
         mMapView = mapView;
+        locationOnceOnly = base.getUseMode() != BaiduMapBase.MAP_MODE_ALWAYS;
+        mA = new a() {
+            @Override
+            public void onReceiveLocation(BDLocation bdLocation) {
+                LogTool.d("activity:------------");
+                base.onReceiveLocation(bdLocation);
+            }
+        };
     }
 
     @Override
@@ -34,6 +49,12 @@ public class MapLocationObserver extends ViewTool.XLifeCycleObserver {
         if (null != mMapView) {
             mMapView.onResume();
         }
+        LocationControl.getClient().registerLocationListener(mA);
+        if (locationOnceOnly) {
+            LocationControl.changeScanSpan(0);
+        } else {
+            LocationControl.changeScanSpan(1000);
+        }
     }
 
     @Override
@@ -41,7 +62,8 @@ public class MapLocationObserver extends ViewTool.XLifeCycleObserver {
         if (null != mMapView) {
             mMapView.onPause();
         }
-
+        LocationControl.changeScanSpan(LocationControl.SCAN_SPAN_DEFAULT);
+        LocationControl.getClient().unRegisterLocationListener(mA);
     }
 
     @Override

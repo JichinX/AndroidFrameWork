@@ -101,20 +101,20 @@ public abstract class AbstractFrameworkBaseLocalizationActivity extends Abstract
     }
 
     private void initBaiduMapView() {
-        LatLng GpsLatLng = getDefaultGpsLatLng();
-        LogTool.d(GpsLatLng.toString());
-        LatLng BaiduLatlng = new CoordinateConverter().from(CoordinateConverter.CoordType.GPS).coord(GpsLatLng).convert();
-        mBaiduMap = mvBaiduMapView.getMap();
-        BaiduMap.OnMapStatusChangeListener mapStatusChangeListener = MapStatusChangeListener();
-        //地图状态改变相关监听
-        mBaiduMap.setOnMapStatusChangeListener(mapStatusChangeListener);
-        //关闭定位图层
-        mBaiduMap.setMyLocationEnabled(true);
-
-        MapStatus mMapStatus = new MapStatus.Builder().target(BaiduLatlng).zoom(18).build();
-        MapStatusUpdate mMapStatusUpdate = MapStatusUpdateFactory.newMapStatus(mMapStatus);
-        //改变地图状态
-        mBaiduMap.setMapStatus(mMapStatusUpdate);
+//        LatLng GpsLatLng = getDefaultGpsLatLng();
+//        LogTool.d(GpsLatLng.toString());
+////        LatLng BaiduLatlng = new CoordinateConverter().from(CoordinateConverter.CoordType.GPS).coord(GpsLatLng).convert();
+//        mBaiduMap = mvBaiduMapView.getMap();
+//        BaiduMap.OnMapStatusChangeListener mapStatusChangeListener = MapStatusChangeListener();
+//        //地图状态改变相关监听
+//        mBaiduMap.setOnMapStatusChangeListener(mapStatusChangeListener);
+//        //关闭定位图层
+//        mBaiduMap.setMyLocationEnabled(true);
+//
+//        MapStatus mMapStatus = new MapStatus.Builder().target(BaiduLatlng).zoom(18).build();
+//        MapStatusUpdate mMapStatusUpdate = MapStatusUpdateFactory.newMapStatus(mMapStatus);
+//        //改变地图状态
+//        mBaiduMap.setMapStatus(mMapStatusUpdate);
     }
 
     private void initActionBar() {
@@ -154,6 +154,11 @@ public abstract class AbstractFrameworkBaseLocalizationActivity extends Abstract
         BaiduMap.OnMapStatusChangeListener listener = new BaiduMap.OnMapStatusChangeListener() {
             @Override
             public void onMapStatusChangeStart(MapStatus mapStatus) {
+            }
+
+            @Override
+            public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
+
             }
 
             @Override

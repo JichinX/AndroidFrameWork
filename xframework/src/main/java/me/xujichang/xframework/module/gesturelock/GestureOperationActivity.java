@@ -12,9 +12,9 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
-import me.xujichang.hybirdbase.R;
 import me.xujichang.hybirdbase.base.HybirdBaseActivity;
-import me.xujichang.hybirdbase.module.gesturelock.util.GestureLockUtil;
+import me.xujichang.xframework.R;
+import me.xujichang.xframework.module.gesturelock.util.GestureLockUtil;
 
 /**
  * Created by xjc on 2017/6/28.
@@ -193,6 +193,7 @@ public class GestureOperationActivity extends HybirdBaseActivity {
             case GestureLockActivity.TYPE_ALTER:
                 toLockActivity(GestureLockActivity.TYPE_ALTER, -1);
                 break;
+            default:
         }
     }
 

@@ -13,9 +13,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import me.xujichang.hybirdbase.R;
-import me.xujichang.hybirdbase.module.gesturelock.GestureLockActivity;
-import me.xujichang.hybirdbase.module.gesturelock.util.GestureLockUtil;
+import me.xujichang.xframework.R;
+import me.xujichang.xframework.module.gesturelock.GestureLockActivity;
+import me.xujichang.xframework.module.gesturelock.util.GestureLockUtil;
 
 /**
  * 设置手势密码

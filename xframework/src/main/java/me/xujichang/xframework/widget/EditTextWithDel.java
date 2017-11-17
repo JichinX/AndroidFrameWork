@@ -80,8 +80,9 @@ public class EditTextWithDel extends AppCompatEditText {
             Rect rect = new Rect();
             getGlobalVisibleRect(rect);
             rect.left = rect.right - 50;
-            if (rect.contains(eventX, eventY))
+            if (rect.contains(eventX, eventY)) {
                 setText("");
+            }
         }
         return super.onTouchEvent(event);
     }

@@ -3,9 +3,9 @@ repositories {
     maven {
         url 'https://jitpack.io'
     }
-//    maven {
-//        url '/Volumes/SdCard/Development/maven'
-//    }
+    maven {
+        url '/Volumes/SdCard/Development/maven'
+    }
 }
 android {
     compileSdkVersion 26
@@ -15,6 +15,7 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -36,5 +37,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.github.lzyzsd:jsbridge:1.0.4'
-    implementation 'me.xujichang.lib:xutil:1.0.3'
+    api 'me.xujichang.lib:xutil:1.0.4'
+    implementation 'com.android.support:multidex:1.0.2'
 }

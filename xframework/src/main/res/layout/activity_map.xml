@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/padding_16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,6 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:padding="@dimen/padding_4dp">
             <!--GPS编码类型-->
@@ -24,7 +27,7 @@
             <!--经纬度-->
             <TextView
                 android:id="@+id/tv_latlng_data"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_4dp"
                 android:ellipsize="marquee"
@@ -43,9 +46,40 @@
             android:textStyle="bold"
             tool:text="余杭区公安分局" />
     </LinearLayout>
-    <!--地图-->
-    <com.baidu.mapapi.map.MapView
-        android:id="@+id/mv_map_view"
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+        <!--地图-->
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/mv_map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingBottom="@dimen/padding_16dp"
+            android:src="@drawable/ic_location_red" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_back_location"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="@dimen/padding_16dp"
+            android:background="@color/material_textBlack_dividers"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_loc"
+            app:backgroundTint="@color/white"
+            app:borderWidth="0dp"
+            app:elevation="3dp"
+            app:fabSize="normal"
+            app:pressedTranslationZ="@dimen/padding_4dp"
+            app:rippleColor="@color/white"
+            app:useCompatPadding="true" />
+    </FrameLayout>
 </LinearLayout>
