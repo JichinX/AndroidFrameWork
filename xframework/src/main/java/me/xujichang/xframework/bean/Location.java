@@ -8,6 +8,9 @@ import android.text.TextUtils;
 import com.baidu.location.BDLocation;
 import com.baidu.mapapi.model.LatLng;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+
 import me.xujichang.xframework.interfaces.Preferencable;
 
 /**
@@ -153,7 +156,6 @@ public class Location extends LocationBase implements Parcelable, Preferencable 
      * 通过BDLocation对象 初始化
      *
      * @param bdLocation
-     * @see BDLocation
      */
     public void init(BDLocation bdLocation) {
         lat = bdLocation.getLatitude();

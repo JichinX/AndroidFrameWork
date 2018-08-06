@@ -1,10 +1,12 @@
 package me.xujichang.xframework.abs;
 
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 
@@ -14,11 +16,11 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 
 import io.reactivex.Observable;
-import me.xujichang.hybirdbase.api.DownLoadApi;
 import me.xujichang.util.activity.SuperActivity;
 import me.xujichang.util.bean.AppInfo;
 import me.xujichang.util.download.DownLoadTool;
 import me.xujichang.util.tool.LogTool;
+import me.xujichang.xframework.api.DownLoadApi;
 import me.xujichang.xframework.bean.FrameworkConst;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
@@ -46,6 +48,11 @@ public abstract class AbstractFrameworkActivity extends SuperActivity {
                 .cancelable(false)
                 .build()
                 .show();
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     /**
@@ -244,7 +251,7 @@ public abstract class AbstractFrameworkActivity extends SuperActivity {
      * @param appInfo
      */
     protected void downloadApkFile(String baseurl, AppInfo appInfo) {
-        DownLoadTool downLoadTool = (DownLoadTool) new DownLoadTool
+        DownLoadTool downLoadTool = new DownLoadTool
                 .Builder()
                 .fileName(appInfo.getPackageName() + ".apk")
                 .showProgress(true)

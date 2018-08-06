@@ -1,7 +1,7 @@
 package me.xujichang.xframework.module.map;
 
+import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
-import com.baidu.location.a;
 import com.baidu.mapapi.map.MapView;
 
 import me.xujichang.util.tool.LogTool;
@@ -18,14 +18,14 @@ import me.xujichang.xframework.module.location.LocationControl;
 public class MapLocationObserver extends ViewTool.XLifeCycleObserver {
     private BaiduMapBase mBase;
     private MapView mMapView;
-    private a mA;
+    private BDAbstractLocationListener mA;
     private boolean locationOnceOnly = false;
 
     public MapLocationObserver(final BaiduMapBase base, MapView mapView) {
         this.mBase = base;
         mMapView = mapView;
         locationOnceOnly = base.getUseMode() != BaiduMapBase.MAP_MODE_ALWAYS;
-        mA = new a() {
+        mA = new BDAbstractLocationListener() {
             @Override
             public void onReceiveLocation(BDLocation bdLocation) {
                 LogTool.d("activity:------------");

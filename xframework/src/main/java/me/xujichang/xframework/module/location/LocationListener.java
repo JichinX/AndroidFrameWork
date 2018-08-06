@@ -1,7 +1,7 @@
 package me.xujichang.xframework.module.location;
 
+import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
-import com.baidu.location.a;
 
 /**
  * des:
@@ -9,7 +9,7 @@ import com.baidu.location.a;
  * @author xjc by 2017/11/15 11:17 .
  */
 
-public class LocationListener extends a {
+public class LocationListener extends BDAbstractLocationListener {
     @Override
     public void onReceiveLocation(BDLocation bdLocation) {
 

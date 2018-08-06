@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import me.xujichang.util.simple.interfaces.XOnClickListener;
 import me.xujichang.util.tool.LogTool;
 import me.xujichang.util.tool.ViewTool;
 import me.xujichang.xframework.abs.AbstractFrameworkActivity;
@@ -46,7 +47,7 @@ public class FrameworkBaseActivity extends AbstractFrameworkActivity implements 
         return FrameworkConst.LAUNCH_ACTIVITY_NAME;
     }
 
-    protected <T extends View> void proxyViewClick(T view, ViewTool.XOnClickListener<T> listener) {
+    protected <T extends View> void proxyViewClick(T view, XOnClickListener<T> listener) {
         if (null != mViewTool) {
             mViewTool.proxyClickListener(view, listener);
         }

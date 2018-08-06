@@ -47,7 +47,7 @@ public abstract class AbstractFrameworkWebViewActivity extends SuperActivity imp
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base_web);
+        setContentView(R.layout.activity_base_    web);
         webView = (BridgeWebView) findViewById(R.id.base_web_view);
         progressBar = (ProgressBar) findViewById(R.id.pb_loading_status);
         //加载默认方法

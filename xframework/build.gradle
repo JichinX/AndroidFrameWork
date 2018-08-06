@@ -4,18 +4,16 @@ repositories {
         url 'https://jitpack.io'
     }
     maven {
-        url '/Volumes/SdCard/Development/maven'
+        url '/Volumes/SdCard/Development/environment/.m2/localmaven'
     }
 }
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion compile_version
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-        multiDexEnabled true
+        minSdkVersion min_version
+        targetSdkVersion target_version
+        versionCode verCode
+        versionName verName
     }
 
     buildTypes {
@@ -30,13 +28,17 @@ android {
             jni.srcDirs = []
         }
     }
-
+    //增加lint选项，不加的话下面上传到jCenter有可能会报错
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.github.lzyzsd:jsbridge:1.0.4'
-    api 'me.xujichang.lib:xutil:1.0.4'
-    implementation 'com.android.support:multidex:1.0.2'
+    implementation support.v7
+    implementation support.v13
+    implementation lib.lzyzsd_jsbridge
+    implementation own.xutil
 }
+apply from: 'jcenter-push.gradle'

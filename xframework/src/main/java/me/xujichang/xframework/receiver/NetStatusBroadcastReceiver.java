@@ -11,13 +11,6 @@ import me.xujichang.xframework.utils.NetUtil;
 
 /**
  * des:
- * <receiver android:name=".receiver.NetStatusBroadcastReceiver">
- * <intent-filter>
- * <action android:name="android.NET.conn.CONNECTIVITY_CHANGE" />
- * <action android:name="android.Net.wifi.WIFI_STATE_CHANGED" />
- * <action android:name="android.net.wifi.STATE_CHANGE" />
- * </intent-filter>
- * </receiver>
  *
  * @author xjc by 2017/11/17 15:17 .
  */

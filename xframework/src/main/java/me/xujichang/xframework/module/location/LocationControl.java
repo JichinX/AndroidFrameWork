@@ -2,9 +2,9 @@ package me.xujichang.xframework.module.location;
 
 import android.content.Context;
 
+import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
-import com.baidu.location.a;
 
 /**
  * des:
@@ -67,12 +67,23 @@ public class LocationControl {
 
     }
 
-    public LocationClient client(a locationListener) {
+    public LocationClient baiduClient(BDAbstractLocationListener locationListener) {
         mClient.registerLocationListener(locationListener);
         return mClient;
     }
 
-    public static void registerLocationListener(a a) {
+    /**
+     * 高德地图回调
+     *
+//     * @param locationListener
+     * @return
+     */
+//    public LocationClient amapClient(BDAbstractLocationListener locationListener) {
+//        mClient.registerLocationListener(locationListener);
+//        return mClient;
+//    }
+
+    public static void registerLocationListener(BDAbstractLocationListener a) {
         mClient.registerLocationListener(a);
     }
 
